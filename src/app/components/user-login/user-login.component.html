@@ -1,0 +1,17 @@
+<div class="container col-md-6">
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <div class="card">    
+    <h1 style="color: white;">User Login</h1>
+    <form (ngSubmit)="userLogin()">
+        <div class="clas mb-3">
+            <label style="color: white;" for="exampleFormControlInput1" class="form-label">UserId</label>
+            <input type="text" [(ngModel)]="user.userId" class="form-control" id="userId" name="userId">
+        </div>
+        <div class="clas mb-3">
+            <label style="color: white;" for="exampleFormControlInput1" class="form-label">Password</label>
+            <input type="password" [(ngModel)]="user.password" class="form-control" id="password" name="password">
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+    </div>
+</div>
