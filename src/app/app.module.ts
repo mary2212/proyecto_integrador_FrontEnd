@@ -11,6 +11,10 @@ import { AddPropietarioComponent } from './components/add-propietario/add-propie
 import { AddMascotaComponent } from './components/add-mascota/add-mascota.component';
 import { AddOcupantesComponent } from './components/add-ocupantes/add-ocupantes.component';
 import { UserLoginComponent } from './components/user-login/user-login.component';
+import { LoginComponent } from './components/login/login.component';
+import { SingupComponent } from './components/singup/singup.component';
+import { HeaderComponent } from './components/header/header.component';
+
 
 
 @NgModule({
@@ -22,6 +26,9 @@ import { UserLoginComponent } from './components/user-login/user-login.component
     AddMascotaComponent,
     AddOcupantesComponent,
     UserLoginComponent,
+    LoginComponent,
+    SingupComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

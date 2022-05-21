@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <br><br><br><br><br><br><br><br><br><br><br><br>
+            <div class="card">
+                <div class="text-center">
+                    <h1 style="color: white;">Sing Up</h1>
+                    <h6>Register Yourself!!</h6>
+                </div>
+                <form>
+                    <form [formGroup]="singupForm" (ngSubmit)="signUp()" >
+                        <div class="mb-3">
+                          <label for="exampleInputEmail1" class="form-label">User</label>
+                          <input formControlName="userId" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        </div>
+                        <div class="mb-3">
+                          <label for="exampleInputPassword1" class="form-label">Password</label>
+                          <input formControlName="password" type="password" class="form-control" id="exampleInputPassword1">
+                        </div>
+                        <button type="submit" class="btn btn-primary mb-2">Sign Up</button>
+                      </form>
+                      <a style="color: #fff; margin-top: 10px;" routerLink="/login">Alreay registered? Click to Login!!</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>   
+

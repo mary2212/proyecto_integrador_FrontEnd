@@ -5,16 +5,22 @@ import { AddEdificioComponent } from './components/add-edificio/add-edificio.com
 import { AddMascotaComponent } from './components/add-mascota/add-mascota.component';
 import { AddOcupantesComponent } from './components/add-ocupantes/add-ocupantes.component';
 import { AddPropietarioComponent } from './components/add-propietario/add-propietario.component';
-import { LoginuserService } from './services/loginuser.service';
+import { HeaderComponent } from './components/header/header.component';
+import { LoginComponent } from './components/login/login.component';
+import { SingupComponent } from './components/singup/singup.component';
+import { UserLoginComponent } from './components/user-login/user-login.component';
 
 const routes: Routes = [
-  {path: '', redirectTo:'userLogin',pathMatch:'full'},
-  { path:"userLogin", component:LoginuserService},
+  { path: '', redirectTo:'login',pathMatch:'full'},
+  { path: 'login', component: LoginComponent},
+  { path: 'signup', component: SingupComponent},
+  { path: 'userLogin', component: UserLoginComponent},
   { path:"addEdificio", component: AddEdificioComponent},
-  { path:"addModalidad", component: AddDepartamentoComponent},
+  { path:"addDepartamento", component: AddDepartamentoComponent},
   { path:"addMascota", component: AddMascotaComponent},
   { path:"addOcupantes", component: AddOcupantesComponent},
   { path:"addPropietario", component: AddPropietarioComponent},
+  { path: "header", component : HeaderComponent}
   
 ];
 
