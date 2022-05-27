@@ -11,6 +11,21 @@
       "userId": "angela",
       "password": "123",
       "id": 1
+    },
+    {
+      "userId": "ronald",
+      "password": "123",
+      "id": 2
+    },
+    {
+      "userId": "franco",
+      "password": "123",
+      "id": 3
+    },
+    {
+      "userId": "jacinto",
+      "password": "123",
+      "id": 4
     }
   ],
   "profile": {
