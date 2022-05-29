@@ -10,12 +10,26 @@
                 <form>
                     <form [formGroup]="loginForm" (ngSubmit)="login()">
                         <div class="mb-3">
-                          <label for="exampleInputEmail1" class="form-label">Email address</label>
+                          <label for="exampleInputEmail1" class="form-label">User</label>
                           <input formControlName="userId" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                          <!--cambio-->
+                          <div *ngIf="submitted && loginForm.controls.userId.errors" class="invalid">
+                            <div *ngIf="loginForm.controls.userId.errors.required">
+                                    Ingresa el User Name
+                            </div>
+                          </div>
+                          <!--cambio-->
                         </div>
                         <div class="mb-3">
                           <label for="exampleInputPassword1" class="form-label">Password</label>
                           <input formControlName="password" type="password" class="form-control" id="exampleInputPassword1">
+                        <!--cambio-->
+                        <div *ngIf="submitted && loginForm.controls.password.errors" class="invalid">
+                            <div *ngIf="loginForm.controls.password.errors.required">
+                                    Ingresa el Password
+                            </div>
+                          </div>
+                          <!--cambio-->
                         </div>
                         <button type="submit" class="btn btn-primary">Login</button>
                       </form>
