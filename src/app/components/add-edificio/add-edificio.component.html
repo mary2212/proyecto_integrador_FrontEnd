@@ -62,18 +62,19 @@
                 </div>
                 
                 <div class="modal-body">
-                    <form class="content" >
+                    <form [formGroup]="ediForm" class="content" >
                         <div class="submit-form">
                             
                                 <div  class="row">
                                     <div class="col-md-5">
                                         <label for="id_reg_nomEdificio">Nombre Edificio</label>
-                                        <input [(ngModel)] ="edificio.nomEdificio"  type="text" placeholder="Ingrese el nombre" class="form-control" name="nomEdificio" id="id_reg_nomEdificio" />
+                                        <input formControlName="nomEdificio" [(ngModel)] ="edificio.nomEdificio"  type="text" placeholder="Ingrese el nombre" class="form-control" name="nomEdificio" id="id_reg_nomEdificio" />
+ 
                                     </div>
                                     
                                     <div class="col-lg-2">
                                         <label for="id_reg_numPisos">Numero de Pisos</label>
-                                        <input [(ngModel)] ="edificio.numPisos"  t type="text" placeholder="Ingrese DNI" class="form-control" name="numPisos" id="id_reg_numPisos"  maxlength="8"/>
+                                        <input formControlName="numPisos" [(ngModel)] ="edificio.numPisos"  t type="text" placeholder="Ingrese DNI" class="form-control" name="numPisos" id="id_reg_numPisos"  maxlength="8"/>
                                     </div>
 
 
