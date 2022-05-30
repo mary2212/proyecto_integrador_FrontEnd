@@ -16,7 +16,10 @@
                 <button type="button" data-toggle='modal' data-target="#idModalRegistrar" class='btn btn-success' style="width: 150px">Buscar</button>
             </div>
             <div class="col-md-2">
-                <button type="button" data-toggle='modal' data-target="#idModalRegistrar2" class='btn btn-success' style="width: 150px">Registrar</button>
+                <button type="button" data-toggle='modal' data-target="#idModalRegistrar3" class='btn btn-success' style="width: 160px">Registrar Visita</button>
+            </div>
+            <div class="col-md-2">
+                <button type="button" data-toggle='modal' data-target="#idModalRegistrar2" class='btn btn-success' style="width: 160px">Registrar Visitante</button>
             </div>
         </div>
 
@@ -38,14 +41,12 @@
                         <tbody>
                             <tr *ngFor="let aux of visitas">                               
                                 <td>{{aux.idVisita}}</td>
-                                <td>{{aux.visitante?.idVisitante}}</td>
+                                <td>{{aux.visitante?.nombreVisitante}}</td>
                                 <td>{{aux.fechaEntrada}}</td>
                                 <td>{{aux.fechaSalida}}</td>
                                 <td>{{aux.estado}}</td>
-                                <td>{{aux.departamento?.idDepartamento}}</td>
-                                <td><button type="button" style="width: 90px" class="btn btn-primary btn-sm btn-danger" data-toggle='modal' data-target="#exampleModalEliminar">Eliminar</button></td>
-                                <td><button type="button" style="width: 90px" class="btn btn-primary btn-sm"  data-toggle="modal" data-target="#idModalActualizar">Editar</button></td>
-                                
+                                <td>{{aux.departamento?.numeroDepartamento}}</td>
+                                <td><button (click)="busca(aux)"  type="button" style="width: 90px" class="btn btn-primary btn-sm btn-danger"  data-toggle="modal" data-target="#idModalRegistrar4">Salida</button></td>                                
                             </tr>
                         </tbody>
                     </table>
@@ -62,7 +63,7 @@
             <div class="modal-content" >
 
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Registro de Visitante</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Consulta de Visitante</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                     </button>
@@ -215,6 +216,63 @@
                
                     </form>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade"  id="idModalRegistrar3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+        <div class="modal-dialog" style="max-width: 70%;">
+            <div class="modal-content" >
+
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Registro de Visita</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form class="content" >
+                        <div class="submit-form">
+                            
+                                <div  class="row">
+
+                                    <div class="col-lg-4">
+                                        <label  for="id_reg_provincia">Visitante</label>
+                                        <select [(ngModel)] ="visita.visitante!.idVisitante" id="id_reg_provincia" name="provincia" class="form-control" >
+                                            <option value="-1"> [Seleccione] </option>  
+                                            <option *ngFor="let aux of listaVisitantes" value="{{aux.idVisitante}}">
+                                                {{ aux.nombreVisitante }}
+                                            </option>                                          
+                                        </select>
+                                    </div>                            
+
+
+                                    <div class="col-lg-4">
+                                        <label  for="id_reg_provincia">Departamento</label>
+                                        <select [(ngModel)] ="visita.departamento!.idDepartamento" id="id_reg_provincia" name="provincia" class="form-control" >
+                                            <option value="-1"> [Seleccione] </option>  
+                                            <option *ngFor="let aux of listaDepartamentos" value="{{aux.idDepartamento}}">
+                                                {{ aux.numeroDepartamento }}
+                                            </option>                                          
+                                        </select>
+                                    </div>
+                                </div>                           
+
+                        </div> 
+                        <br>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btn_reg_cerrar" style="width: 100px;">Close</button>
+                            <div class="form-group text-center">
+                                <div class="col-lg-12">
+                                    <button (click)="registraIngreso()" id="id_reg_registra"  class="btn btn-success form-control"style="width: 100px;">Registrar</button>
+                                </div>
+                            </div>
+                        </div>
+
+               
+                    </form>
+                </div>
 
 
 
@@ -222,4 +280,47 @@
         </div>
     </div>
 
-    
+    <div class="modal fade4"  id="idModalRegistrar4" tabindex="-1" aria-labelledby="exampleModalLabel4" aria-hidden="true">
+
+        <div class="modal-dialog" style="max-width: 70%;">
+            <div class="modal-content" >
+
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Registro de Salida</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form class="content" >
+                        <div class="submit-form">
+                            
+                                <div  class="row">                                             
+
+                                    <div class="col-lg-4">
+                                        <label for="id_reg_nombre">Salida</label>
+                                        <input [(ngModel)] ="visita.fechaSalida" type="date" placeholder="Ingrese el nombre" class="form-control" name="nombre" id="id_reg_nombre" />
+                                    </div>
+                           
+                                </div>                           
+
+                        </div> 
+                        <br>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btn_reg_cerrar" style="width: 100px;">Close</button>
+                            <div class="form-group text-center">
+                                <div class="col-lg-12">
+                                    <button (click)="actualizaSalida()" id="id_reg_registra"  class="btn btn-success form-control"style="width: 100px;">Registrar</button>
+                                </div>
+                            </div>
+                        </div>
+
+               
+                    </form>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>

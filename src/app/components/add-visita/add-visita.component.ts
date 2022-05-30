@@ -69,6 +69,76 @@ export class AddVisitaComponent implements OnInit {
     );
     
   }
+
+
+  registraIngreso(){
+    console.log(" ==> registra ==>filtro ==> " + this.visita.idVisita);
+    console.log(" ==> registra ==>idVisitante ==> " + this.visita.visitante?.idVisitante);
+    console.log(" ==> registra ==>fechaEntrada ==> " + this.visita.fechaEntrada);
+    console.log(" ==> registra ==>estado ==> " + this.visita.estado);
+    console.log(" ==> registra ==>idDepartamento ==> " + this.visita.departamento?.idDepartamento);
+    
+    this.visitaService.registra(this.visita).subscribe(
+      response =>{
+        alert(response.mensaje);
+
+        this.visitaService.consulta(this.filtro).subscribe(
+          response => this.visitas = response
+        );
+
+        this.visita = {
+          idVisita:0,
+          visitante:{
+            idVisitante:0
+          },
+          fechaEntrada:"",
+          estado:"",
+          departamento:{
+            idDepartamento:0
+          }
+        };
+      }
+    );
+  }
+
+  busca(aux:Visita){
+    console.log("==> busca ==> visita ==> "+ aux.idVisita);
+
+    this.visita = aux;
+    
+  }
+
+  actualizaSalida(){
+    console.log(" ==> registra ==>filtro ==> " + this.visita.idVisita);
+    console.log(" ==> registra ==>idVisitante ==> " + this.visita.visitante?.idVisitante);
+    console.log(" ==> registra ==>fechaEntrada ==> " + this.visita.fechaEntrada);
+    console.log(" ==> registra ==>fechaSalida ==> " + this.visita.fechaSalida);
+    console.log(" ==> registra ==>estado ==> " + this.visita.estado);
+    console.log(" ==> registra ==>idDepartamento ==> " + this.visita.departamento?.idDepartamento);
+    
+    this.visitaService.actualiza(this.visita).subscribe(
+      response =>{
+        alert(response.mensaje);
+
+        this.visitaService.consulta(this.filtro).subscribe(
+          response => this.visitas = response
+        );
+
+        this.visita = {
+          idVisita:0,
+          visitante:{
+            idVisitante:0
+          },
+          fechaEntrada:"",
+          estado:"",
+          departamento:{
+            idDepartamento:0
+          }
+        };
+      }
+    );
+  }
+
  ///////////////////////////////VISITANTE///////////////////////////////////////////
 
  
