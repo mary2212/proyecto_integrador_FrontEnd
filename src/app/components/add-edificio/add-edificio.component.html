@@ -69,12 +69,25 @@
                                     <div class="col-md-5">
                                         <label for="id_reg_nomEdificio">Nombre Edificio</label>
                                         <input formControlName="nomEdificio" [(ngModel)] ="edificio.nomEdificio"  type="text" placeholder="Ingrese el nombre" class="form-control" name="nomEdificio" id="id_reg_nomEdificio" />
- 
+                                        <!--cambio-->
+                                        <div *ngIf="submitted && ediForm.controls.nomEdificio.errors" class="invalid">
+                                            <div *ngIf="ediForm.controls.nomEdificio.errors.required">
+                                                    Ingrese el Nombre del Edificio
+                                            </div>
+                                        </div>
+                                         <!--cambio-->
                                     </div>
                                     
                                     <div class="col-lg-2">
                                         <label for="id_reg_numPisos">Numero de Pisos</label>
-                                        <input formControlName="numPisos" [(ngModel)] ="edificio.numPisos"  t type="text" placeholder="Ingrese DNI" class="form-control" name="numPisos" id="id_reg_numPisos"  maxlength="8"/>
+                                        <input formControlName="numPisos" [(ngModel)] ="edificio.numPisos"  t type="text" placeholder="Ingrese Numero de Pisos" class="form-control" name="numPisos" id="id_reg_numPisos"  maxlength="8"/>
+                                        <!--cambio-->
+                                        <div *ngIf="submitted && ediForm.controls.numPisos.errors" class="invalid">
+                                            <div *ngIf="ediForm.controls.numPisos.errors.required">
+                                                    Ingrese la Cantidad
+                                            </div>
+                                        </div>
+                                         <!--cambio-->
                                     </div>
 
 
