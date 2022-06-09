@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Departamento } from 'src/app/models/departamento.model';
 import { Edificio } from 'src/app/models/edificio.model';
 import { DepartamentoService } from 'src/app/services/departamento.service';
@@ -30,8 +31,17 @@ export class AddDepartamentoComponent implements OnInit {
     };
 
     listaEdificios: Edificio[] = [];
-  
-   constructor(private departamentoService:DepartamentoService, private edificioService:EdificioService) {     
+  /*cambio*/
+  //validaciones
+  depForm : FormGroup= this.formBuilder.group({
+    numeroDepartamento:['',[Validators.required]],
+    piso:['',[Validators.required]],
+    metrosCuadrados:['',[Validators.required]],
+
+  });
+  submitted= false;
+  /*cambio*/
+   constructor(private departamentoService:DepartamentoService, private edificioService:EdificioService/*cambio*/, private formBuilder:FormBuilder/*cambio*/) {     
        this.edificioService.listaEdificio().subscribe(
          edificios => this.listaEdificios = edificios
        );
@@ -55,6 +65,14 @@ export class AddDepartamentoComponent implements OnInit {
     console.log(" ==> registra ==> metrosCuadrados ==>" + this.departamento.metrosCuadrados);
     console.log(" ==> registra ==> edificio ==>" + this.departamento.edificio);
     console.log(" ==> registra ==> estado ==>" + this.departamento.estado);    
+
+    /*cambio*/
+    this.submitted=true;
+    
+    if(this.depForm.invalid){
+      return;
+    }
+    /*cambio*/
 
     this.departamentoService.registra(this.departamento).subscribe(
       response =>{
