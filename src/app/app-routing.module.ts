@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddDepartamentoComponent } from './components/add-departamento/add-departamento.component';
 import { AddEdificioComponent } from './components/add-edificio/add-edificio.component';
+import { AddIncidenteComponent } from './components/add-incidente/add-incidente.component';
 import { AddMascotaComponent } from './components/add-mascota/add-mascota.component';
 import { AddOcupantesComponent } from './components/add-ocupantes/add-ocupantes.component';
 import { AddPropietarioComponent } from './components/add-propietario/add-propietario.component';
@@ -22,7 +23,8 @@ const routes: Routes = [
   { path: "addOcupantes", component: AddOcupantesComponent},
   { path: "addPropietario", component: AddPropietarioComponent},
   { path: "addVisita", component: AddVisitaComponent},
-  { path: "header", component : HeaderComponent}
+  { path: "header", component : HeaderComponent},
+  { path: "addIncidente", component : AddIncidenteComponent}
   
 ];
 

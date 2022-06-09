@@ -15,6 +15,7 @@ import { LoginComponent } from './components/login/login.component';
 import { SingupComponent } from './components/singup/singup.component';
 import { HeaderComponent } from './components/header/header.component';
 import { AddVisitaComponent } from './components/add-visita/add-visita.component';
+import { AddIncidenteComponent } from './components/add-incidente/add-incidente.component';
 
 //mmmm
 
@@ -30,7 +31,8 @@ import { AddVisitaComponent } from './components/add-visita/add-visita.component
     LoginComponent,
     SingupComponent,
     HeaderComponent,
-    AddVisitaComponent
+    AddVisitaComponent,
+    AddIncidenteComponent
   ],
   imports: [
     BrowserModule,
