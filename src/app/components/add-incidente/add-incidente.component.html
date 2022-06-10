@@ -1,0 +1,199 @@
+<app-header></app-header>
+<div class="container" >
+    <h5>Crud de Departamento</h5>
+
+    <div class="col-md-23" style="margin-top: 3%">
+
+
+        <div class="row" style="height: 80px">
+
+            <div class="col-lg-4">
+                <label  for="id_reg_provincia">Edificios</label>
+                <select id="id_reg_provincia" name="provincia" class="form-control" >
+                    <option value="-1"> [Seleccione] </option>                                                                                   
+                </select>
+            </div>
+
+            <div class="col-lg-4">
+                <label  for="id_reg_provincia">Departamento</label>
+                <select id="id_reg_provincia" name="provincia" class="form-control" >
+                    <option value="-1"> [Seleccione] </option>                                                                                   
+                </select>
+            </div>
+            
+            <div class="col-lg-4">
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input" id="estado" checked>
+                    <label class="custom-control-label" for="estado">Estado</label>
+                </div>
+            </div>         
+            <br><br><br><br>
+            <div class="col-md-2">
+                <button type="button" class="btn btn-primary" id="id_btn_Listar" style="width: 150px">Filtrar</button>
+            </div>
+            <br><br><br><br>
+            <div class="col-md-2">
+                <button  type="button" data-toggle='modal' data-target="#idModalRegistrar" class='btn btn-success' style="width: 150px">Registrar</button>
+            </div>
+        </div>
+        <br><br><br>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="content">
+
+                    <table id="id_table" class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th style="width: 5%">#</th>
+                                <th style="width: 30%">Descripcion</th>
+                                <th style="width: 10%">FechaIncidente</th>
+                                <th style="width: 10%">Departamento</th>
+                                <th style="width: 10%">Edificio</th>
+                                <th style="width: 10%">Estado</th>                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr >
+                                <td>AAAAAAAAA</td>
+                                <td>AAAAAAAAA</td>
+                                <td>AAAAAAAAA</td>
+                                <td>AAAAAAAAA</td>
+                                <td>AAAAAAAAA</td>
+                                <td>AAAAAAAAA</td>
+                                <td><button  type="button" style="width: 90px" class="btn btn-primary btn-sm btn-danger" data-toggle='modal' data-target="#exampleModalEliminar">Eliminar</button></td>
+                                <td><button  type="button" style="width: 90px" class="btn btn-primary btn-sm"  data-toggle="modal" data-target="#idModalActualizar">Editar</button></td>
+                                
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade"  id="idModalRegistrar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+        <div class="modal-dialog" style="max-width: 70%;">
+            <div class="modal-content" >
+
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Registro de Incidente</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                
+                <div class="modal-body">
+                    <form class="content" >
+                        <div class="submit-form">
+                            
+                                <div  class="row">
+                                  
+                                    <div class="col-lg-4">
+                                        <label  for="id_reg_provincia">Edificio</label>
+                                        <select id="id_reg_provincia" name="provincia" class="form-control" >
+                                            <option value="-1"> [Seleccione] </option>   
+                                            <option *ngFor="let aux of listaEdificios" value="{{aux.idEdificio}}">
+                                                {{ aux.nomEdificio}}
+                                            </option>                                                                                
+                                        </select>
+                                    </div>
+
+                                    <div class="col-lg-4">
+                                        <label  for="id_reg_provincia">Departamento</label>
+                                        <select id="id_reg_provincia" name="provincia" class="form-control" >
+                                            <option value="-1"> [Seleccione] </option> 
+                                            <option *ngFor="let aux of listaDepartamanentos" value="{{aux.idDepartamento}}">
+                                                {{ aux.numeroDepartamento}}
+                                            </option>                                                                                  
+                                        </select>
+                                    </div>                                
+                                                                      
+                                    <div class="col-lg-4">
+                                        <label for="id_reg_dni">Descripcion</label>
+                                        <input [(ngModel)]= "incidente.descripcion" type="text" placeholder="Ingrese Estado" class="form-control" name="dni" id="id_reg_dni"  maxlength="10"/>
+                                    </div>
+                                </div>                                
+
+                        </div> 
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btn_reg_cerrar" style="width: 100px;">Close</button>
+                            <div class="form-group text-center">
+                                <div class="col-lg-12">
+                                    <button (click)="registra()" id="id_reg_registra"  class="btn btn-success form-control"style="width: 100px;">Registrar</button>
+                                </div>
+                            </div>
+                        </div>
+
+               
+                    </form>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="idModalActualizar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="max-width: 80%;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Actualización de docente</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                         <span aria-hidden="true">&times;</span>
+                     </button>
+                </div>
+                <div class="modal-body">
+
+                    <form class="content" >
+                        <div class="submit-form">
+
+                            <div  class="row">
+                                <div class="col-lg-10">
+                                    <label for="id_reg_nombre">Numero de Departamento</label>
+                                    <input type="text" placeholder="Ingrese el nombre" class="form-control" name="nombre" id="id_reg_nombre" />
+                                </div>
+                                
+                                <div class="col-lg-2">
+                                    <label for="id_reg_dni">Piso</label>
+                                    <input type="text" placeholder="Ingrese DNI" class="form-control" name="dni" id="id_reg_dni"  maxlength="8"/>
+                                </div>
+                                 
+                                <div class="col-lg-4">
+                                    <label for="id_reg_dni">M.Cuadrados</label>
+                                    <input type="text" placeholder="Ingrese DNI" class="form-control" name="dni" id="id_reg_dni"  maxlength="8"/>
+                                </div>
+
+                                <div class="col-lg-4">
+                                    <label  for="id_reg_provincia">Edificios</label>
+                                    <select id="id_reg_provincia" name="provincia" class="form-control" >
+                                        <option value="-1"> [Seleccione] </option>                                                                 
+                                    </select>
+                                </div>
+
+                                <div class="col-lg-4">
+                                    <label for="id_reg_dni">Estado</label>
+                                    <input type="text" placeholder="Ingrese DNI" class="form-control" name="dni" id="id_reg_dni"  maxlength="8"/>
+                                </div>
+                            </div>    
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btn_act_cerrar">Close</button>
+                            <div class="form-group text-center">
+                                <div class="col-lg-12">
+                                    <button id="id_act_actualiza" class="btn btn-success form-control">Actualizar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    

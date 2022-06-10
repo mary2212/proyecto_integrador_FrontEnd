@@ -15,9 +15,9 @@ export class VisitaService {
 
   consulta(filtro:string):Observable<Visita[]>{
     if(filtro.trim() == ''){
-      return this.http.get<Visita[]>(baseUrl+"/listaVisitaPorID/")
+      return this.http.get<Visita[]>(baseUrl+"/listaVisitaPorEstado/todos")
     }else{
-      return this.http.get<Visita[]>(baseUrl+"/listaVisitaPorID/" + filtro)
+      return this.http.get<Visita[]>(baseUrl+"/listaVisitaPorEstado/" + filtro)
     }
   }
 
@@ -25,6 +25,8 @@ export class VisitaService {
     return this.http.post<any>(baseUrl+"/registrar", aux);
   }
 
+  actualiza(aux:Visita): Observable<any>{
+    return this.http.put<any>(baseUrl+"/actualizar", aux);
+  }
 
-
-}
+} 
