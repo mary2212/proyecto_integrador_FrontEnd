@@ -16,7 +16,10 @@
                 <button type="button" data-toggle='modal' data-target="#idModalRegistrar" class='btn btn-success' style="width: 150px">Buscar</button>
             </div>
             <div class="col-md-2">
-                <button type="button" data-toggle='modal' data-target="#idModalRegistrar2" class='btn btn-success' style="width: 150px">Registrar</button>
+                <button type="button" data-toggle='modal' data-target="#idModalRegistrar3" class='btn btn-success' style="width: 160px">Registrar Visita</button>
+            </div>
+            <div class="col-md-2">
+                <button type="button" data-toggle='modal' data-target="#idModalRegistrar2" class='btn btn-success' style="width: 160px">Registrar Visitante</button>
             </div>
         </div>
 
@@ -38,14 +41,12 @@
                         <tbody>
                             <tr *ngFor="let aux of visitas">                               
                                 <td>{{aux.idVisita}}</td>
-                                <td>{{aux.visitante?.idVisitante}}</td>
+                                <td>{{aux.visitante?.nombreVisitante}}</td>
                                 <td>{{aux.fechaEntrada}}</td>
                                 <td>{{aux.fechaSalida}}</td>
                                 <td>{{aux.estado}}</td>
-                                <td>{{aux.departamento?.idDepartamento}}</td>
-                                <td><button type="button" style="width: 90px" class="btn btn-primary btn-sm btn-danger" data-toggle='modal' data-target="#exampleModalEliminar">Eliminar</button></td>
-                                <td><button type="button" style="width: 90px" class="btn btn-primary btn-sm"  data-toggle="modal" data-target="#idModalActualizar">Editar</button></td>
-                                
+                                <td>{{aux.departamento?.numeroDepartamento}}</td>
+                                <td><button (click)="busca(aux)"  type="button" style="width: 90px" class="btn btn-primary btn-sm btn-danger"  data-toggle="modal" data-target="#idModalRegistrar4">Salida</button></td>                                
                             </tr>
                         </tbody>
                     </table>
@@ -62,7 +63,7 @@
             <div class="modal-content" >
 
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Registro de Visitante</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Consulta de Visitante</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                     </button>
@@ -70,10 +71,10 @@
                 <br>  
                 <div class="row" style="height: 40px">
                     <div class="col-md-4">
-                        <input [(ngModel)]= "filtro" class="form-control"  id="id_txt_filtro" name="filtro" placeholder="Ingrese el nombre" type="text" maxlength="30" />
+                        <input [(ngModel)]= "filtro2" class="form-control"  id="id_txt_filtro_visitante" name="filtro_visitante" placeholder="Ingrese el nombre" type="text" maxlength="30" />
                     </div>
                     <div class="col-md-2">
-                        <button (click)="consulta()" type="button" class="btn btn-primary" id="id_btn_Listar" style="width: 150px">Buscar</button>
+                        <button (click)="consultaVisitante()" type="button" class="btn btn-primary" id="id_btn_Listar" style="width: 150px">Buscar</button>
                     </div>
                 </div>
 
@@ -94,15 +95,15 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr *ngFor="let aux of visitas">                               
-                                                <td>{{aux.idVisita}}</td>
-                                                <td>{{aux.visitante?.idVisitante}}</td>
-                                                <td>{{aux.fechaEntrada}}</td>
-                                                <td>{{aux.fechaSalida}}</td>
-                                                <td>{{aux.estado}}</td>
-                                                <td><button type="button" style="width: 90px" class="btn btn-primary btn-sm btn-danger" data-toggle='modal' data-target="#exampleModalEliminar">Eliminar</button></td>
-                                                <td><button type="button" style="width: 90px" class="btn btn-primary btn-sm"  data-toggle="modal" data-target="#idModalActualizar">Editar</button></td>
-                                                
+                                            <tr *ngFor="let aux of visitantes">                               
+                                                <td>{{aux.idVisitante}}</td>
+                                                <td>{{aux.nombreVisitante}}</td>
+                                                <td>{{aux.apellidoVisitante}}</td>
+                                                <td>{{aux.dniVisitante}}</td>
+                                                <td>{{aux.fechaRegistro}}</td>
+                                                <td><button (click)="eliminaVisitante(aux)" type="button" style="width: 90px" class="btn btn-primary btn-sm btn-danger" data-toggle='modal' data-target="#exampleModalEliminar">Eliminar</button></td>
+                                                <td><button (click)="buscaVisitante(aux)" type="button" style="width: 90px" class="btn btn-primary btn-sm"  data-toggle="modal" data-target="#idModalActualizar">Editar</button></td>
+                                                   
                                             </tr>
                                         </tbody>
                                     </table>
@@ -112,11 +113,6 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btn_reg_cerrar" style="width: 100px;">Close</button>
-                            <div class="form-group text-center">
-                                <div class="col-lg-12">
-                                    <button id="id_reg_registra"  class="btn btn-success form-control"style="width: 100px;">Registrar</button>
-                                </div>
-                            </div>
                         </div>               
                     </form>
                 </div>
@@ -128,7 +124,7 @@
         <div class="modal-dialog" style="max-width: 80%;">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Actualización de Edificio</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Actualiza Visitante</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                          <span aria-hidden="true">&times;</span>
                      </button>
@@ -140,18 +136,18 @@
 
                             <div  class="row">
                                 <div class="col-md-5">
-                                    <label for="id_reg_nomEdificio">Nombre Edificio</label>
-                                    <input type="text" placeholder="Ingrese el nombre" class="form-control" name="nomEdificio" id="id_reg_nomEdificio" />
+                                    <label for="id_reg_nomEdificio">Nombre</label>
+                                    <input [(ngModel)]= "visitante.nombreVisitante" type="text" placeholder="Ingrese el nombre" class="form-control" name="nomEdificio" id="id_reg_nomEdificio" />
                                 </div>
                                 
                                 <div class="col-lg-2">
-                                    <label for="id_reg_numPisos">Numero de Pisos</label>
-                                    <input type="text" placeholder="Ingrese DNI" class="form-control" name="numPisos" id="id_reg_numPisos"  maxlength="8"/>
+                                    <label for="id_reg_numPisos">Apellido</label>
+                                    <input [(ngModel)]= "visitante.apellidoVisitante" type="text" placeholder="Ingrese el apellido" class="form-control" name="numPisos" id="id_reg_numPisos"  maxlength="8"/>
                                 </div>
 
                                 <div class="col-lg-2">
-                                    <label for="id_reg_fechaRegistro">Fecha de Registro</label>
-                                    <input type="date" placeholder="Ingrese Numero de Pisos" class="form-control" name="fechaRegistro" id="id_reg_fechaRegistro"  maxlength="8"/>
+                                    <label for="id_reg_fechaRegistro">DNI</label>
+                                    <input [(ngModel)]= "visitante.dniVisitante" type="text" placeholder="Ingrese el dni" class="form-control" name="fechaRegistro" id="id_reg_fechaRegistro"  maxlength="8"/>
                                 </div>
                             </div>         
 
@@ -161,7 +157,7 @@
                             <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btn_act_cerrar">Close</button>
                             <div class="form-group text-center">
                                 <div class="col-lg-12">
-                                    <button id="id_act_actualiza" class="btn btn-success form-control">Actualizar</button>
+                                    <button (click)="actualizaVisitante()" id="id_act_actualiza" class="btn btn-success form-control">Actualizar</button>
                                 </div>
                             </div>
                         </div>
@@ -192,17 +188,17 @@
 
                                     <div class="col-md-5">
                                         <label for="id_reg_nomEdificio">Nombre</label>
-                                        <input type="text" placeholder="Ingrese el nombre" class="form-control" name="nomEdificio" id="id_reg_nomEdificio" />
+                                        <input [(ngModel)] ="visitante.nombreVisitante" type="text" placeholder="Ingrese el nombre" class="form-control" name="nomEdificio" id="id_reg_nomEdificio" />
                                     </div>
                                     
                                     <div class="col-lg-2">
                                         <label for="id_reg_numPisos">Apellido</label>
-                                        <input type="text" placeholder="Ingrese DNI" class="form-control" name="numPisos" id="id_reg_numPisos"  maxlength="8"/>
+                                        <input [(ngModel)] ="visitante.apellidoVisitante" type="text" placeholder="Ingrese el Apellido" class="form-control" name="numPisos" id="id_reg_numPisos"  maxlength="20"/>
                                     </div>
 
                                     <div class="col-md-5">
                                         <label for="id_reg_nomEdificio">DNI</label>
-                                        <input type="text" placeholder="Ingrese el nombre" class="form-control" name="nomEdificio" id="id_reg_nomEdificio" />
+                                        <input [(ngModel)] ="visitante.dniVisitante" type="text" placeholder="Ingrese el DNI" class="form-control" name="nomEdificio" id="id_reg_nomEdificio" maxlength="8" />
                                     </div>
                                 </div>                           
 
@@ -212,7 +208,64 @@
                             <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btn_reg_cerrar" style="width: 100px;">Close</button>
                             <div class="form-group text-center">
                                 <div class="col-lg-12">
-                                    <button id="id_reg_registra"  class="btn btn-success form-control"style="width: 100px;">Registrar</button>
+                                    <button (click)="registraVisitante()" id="id_reg_registra"  class="btn btn-success form-control"style="width: 100px;">Registrar</button>
+                                </div>
+                            </div>
+                        </div>
+
+               
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade"  id="idModalRegistrar3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+        <div class="modal-dialog" style="max-width: 70%;">
+            <div class="modal-content" >
+
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Registro de Visita</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form class="content" >
+                        <div class="submit-form">
+                            
+                                <div  class="row">
+
+                                    <div class="col-lg-4">
+                                        <label  for="id_reg_provincia">Visitante</label>
+                                        <select [(ngModel)] ="visita.visitante!.idVisitante" id="id_reg_provincia" name="provincia" class="form-control" >
+                                            <option value="-1"> [Seleccione] </option>  
+                                            <option *ngFor="let aux of listaVisitantes" value="{{aux.idVisitante}}">
+                                                {{ aux.nombreVisitante }}
+                                            </option>                                          
+                                        </select>
+                                    </div>                            
+
+
+                                    <div class="col-lg-4">
+                                        <label  for="id_reg_provincia">Departamento</label>
+                                        <select [(ngModel)] ="visita.departamento!.idDepartamento" id="id_reg_provincia" name="provincia" class="form-control" >
+                                            <option value="-1"> [Seleccione] </option>  
+                                            <option *ngFor="let aux of listaDepartamentos" value="{{aux.idDepartamento}}">
+                                                {{ aux.numeroDepartamento }}
+                                            </option>                                          
+                                        </select>
+                                    </div>
+                                </div>                           
+
+                        </div> 
+                        <br>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btn_reg_cerrar" style="width: 100px;">Close</button>
+                            <div class="form-group text-center">
+                                <div class="col-lg-12">
+                                    <button (click)="registraIngreso()" id="id_reg_registra"  class="btn btn-success form-control"style="width: 100px;">Registrar</button>
                                 </div>
                             </div>
                         </div>
@@ -227,4 +280,47 @@
         </div>
     </div>
 
-    
+    <div class="modal fade4"  id="idModalRegistrar4" tabindex="-1" aria-labelledby="exampleModalLabel4" aria-hidden="true">
+
+        <div class="modal-dialog" style="max-width: 70%;">
+            <div class="modal-content" >
+
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Registro de Salida</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form class="content" >
+                        <div class="submit-form">
+                            
+                                <div  class="row">                                             
+
+                                    <div class="col-lg-4">
+                                        <label for="id_reg_nombre">Salida</label>
+                                        <input [(ngModel)] ="visita.fechaSalida" type="date" placeholder="Ingrese el nombre" class="form-control" name="nombre" id="id_reg_nombre" />
+                                    </div>
+                           
+                                </div>                           
+
+                        </div> 
+                        <br>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btn_reg_cerrar" style="width: 100px;">Close</button>
+                            <div class="form-group text-center">
+                                <div class="col-lg-12">
+                                    <button (click)="actualizaSalida()" id="id_reg_registra"  class="btn btn-success form-control"style="width: 100px;">Registrar</button>
+                                </div>
+                            </div>
+                        </div>
+
+               
+                    </form>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
