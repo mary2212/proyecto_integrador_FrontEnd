@@ -29,4 +29,4 @@ export class VisitaService {
     return this.http.put<any>(baseUrl+"/actualizar", aux);
   }
 
-} 
+

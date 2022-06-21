@@ -24,7 +24,7 @@ export class VisitanteService {
     }
    
   }
- 
+
   registra(aux:Visitante): Observable<any>{
     return this.http.post<any>(baseURL+"/registrar", aux);
   }

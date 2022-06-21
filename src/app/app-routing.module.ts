@@ -25,8 +25,10 @@ const routes: Routes = [
   { path: "addPropietario", component: AddPropietarioComponent},
   { path: "addVisita", component: AddVisitaComponent},
   { path: "header", component : HeaderComponent},
+
   { path: "addIncidente", component : AddIncidenteComponent},
   { path: "addBoleta", component : AddBoletaComponent}
+
   
 ];
 

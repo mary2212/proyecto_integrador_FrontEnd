@@ -15,7 +15,11 @@ export class EdificioService {
   constructor(private http:HttpClient){} 
 
   listaEdificio():Observable<Edificio[]>{
-    return this.http.get<Edificio[]>(baseURL+"/listar")
+    return this.http.get<any[]>(baseURL+"/listar")
+  }
+
+  listarEdificios(edificio:any):Observable<string[]>{
+    return this.http.get<string[]>(baseURL+"listarEdificio");
   }
 
   consulta(filtro:string):Observable<Edificio[]>{

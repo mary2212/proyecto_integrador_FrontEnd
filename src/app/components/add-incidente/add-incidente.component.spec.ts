@@ -22,4 +22,6 @@ describe('AddIncidenteComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-}); 
+
+});
+
