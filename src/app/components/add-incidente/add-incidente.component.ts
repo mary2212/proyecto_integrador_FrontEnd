@@ -12,12 +12,25 @@ import { IncidenteService } from 'src/app/services/incidente.service';
   styleUrls: ['./add-incidente.component.css']
 })
 export class AddIncidenteComponent implements OnInit {
-
+  //para mostrar informacion en la tabla
   incidentes: Incidente [] = [];
+
+  //para los combobox
+  edificios2: string [] = [];
+  
+  //ng model
+  idEdificio2: number = -1;
+  idDepartamento2: number = -1;
+  estado: string= "";
   filtro: string = "";
+  
+  edificios: Edificio [] = [];
+  departamentos: Departamento [] = [];
+ 
 
   idEdificio: number [] = [];
   idDepartamento: number [] = [];
+  estado2: string [] = [];
 
   incidente: Incidente = {
     idIncidente:0,
@@ -29,13 +42,21 @@ export class AddIncidenteComponent implements OnInit {
     edificio:{
       idEdificio:0,
     },
-    estado:0
+    estado:""
   };
 
   listaEdificios: Edificio[] = [];
   listaDepartamanentos: Departamento[] = [];
 
   constructor(private incidenteService:IncidenteService, private edificioService:EdificioService, private departamentoService:DepartamentoService) { 
+    this.edificioService.listaEdificio().subscribe(
+      (x) => this.edificios = x
+    );
+
+    this.departamentoService.listaDepartamento().subscribe(
+      (x) => this.departamentos = x
+    );
+
     this.edificioService.listaEdificio().subscribe(
       edificios => this.listaEdificios = edificios
     );
@@ -53,26 +74,25 @@ export class AddIncidenteComponent implements OnInit {
 
     this.incidenteService.consulta(this.filtro).subscribe(
       response => this.incidentes = response
-    );
-    
+    );    
   }
 
-  listaIncidente(){
-
+  busca(aux:Incidente){
+    console.log("==> busca ==> incidente ==> "+ aux.idIncidente);
+    this.incidente = aux;
   }
 
-
-
-
-  registra(){
-    console.log(" ==> registra ==> idIncidente ==>" + this.incidente.idIncidente);
-    console.log(" ==> registra ==> descripcion ==>" + this.incidente.descripcion);
-    console.log(" ==> registra ==> fechaIncidente ==>" + this.incidente.fechaIncidente);
-    console.log(" ==> registra ==> departamento ==>" + this.incidente.departamento);
-    console.log(" ==> registra ==> edificio ==>" + this.incidente.edificio);
-    console.log(" ==> registra ==> estado ==>" + this.incidente.estado);
-    
+  registar(){
     this.incidenteService.registra(this.incidente).subscribe(
+      (x) => {
+        alert(x.mensaje);
+        this.consulta();
+      }
+    );
+  }
+
+  actualiza(){
+    this.incidenteService.actualiza(this.incidente).subscribe(
       response =>{
         alert(response.mensaje);
 
@@ -80,18 +100,48 @@ export class AddIncidenteComponent implements OnInit {
           response => this.incidentes = response
         );
 
-        this.incidente={
+        this.incidente = {
           idIncidente:0,
           descripcion:"",
           fechaIncidente:"",
           departamento:{
-            idDepartamento:0,
+            idDepartamento:0
           },
           edificio:{
             idEdificio:0,
           },
-          estado:0
+          estado:"",
         };
+      }
+    );    
+  }
+
+  cargaEdificio(){
+    this.edificioService.listaEdificio().subscribe(
+      (x) => this.edificios = x
+    );
+  }
+
+  cargaDepartamento(){
+    this.departamentoService.listaDepartamento().subscribe(
+      (x) => this.departamentos = x
+    );
+  }
+
+  listaIncidente(){
+    this.incidenteService.listaIncidente(this.idDepartamento2, this.idDepartamento2).subscribe(
+      (x) => {
+        this.incidentes = x.lista;
+        alert(x.mensaje);
+      }
+    );
+  }
+
+  listaIncidente2(){
+    this.incidenteService.listaIncidente2(this.idDepartamento2, this.idDepartamento2, this.estado).subscribe(
+      (x) => {
+        this.incidentes = x.lista;
+        alert(x.mensaje);
       }
     );
   }
