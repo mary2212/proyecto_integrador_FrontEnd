@@ -1,6 +1,8 @@
 <app-header></app-header>
 
+
 <div class="container">
+
 
     <h5>Crud de Incidente</h5>
 
@@ -35,7 +37,9 @@
             <div class="col-lg-4">
                 <label  for="id_reg_provincia">Departamento</label>
 
+
                 <select [(ngModel)] = "idDepartamento2" (change)="cargaDepartamento()" id="id_reg_provincia" name="provincia" class="form-control" >
+
 
                     <option value="-1"> [Seleccione] </option> 
                     <option *ngFor="let aux of listaDepartamanentos" value="{{aux.idDepartamento}}">
@@ -70,9 +74,11 @@
                                 <th style="width: 10%">Departamento</th>
                                 <th style="width: 10%">Edificio</th>
 
+
                                 <th style="width: 10%">Estado</th> 
                                 <th style="width: 15%">Respuesta</th>                     
                                 <th style="width: 10%">Acción</th>                        
+
 
                             </tr>
                         </thead>
@@ -85,8 +91,10 @@
                                 <td>{{aux.edificio!.nomEdificio}}</td>
                                 <td>{{aux.estado}}</td>
 
+
                                 <td>{{aux.solucion}}</td>
                                 <td><button (click)="busca(aux)" type="button" onclick="" style="width: 90px" class="btn btn-primary btn-sm btn-danger" data-toggle='modal' data-target="#idModalRegistrar4">Atender</button></td>                              
+
 
                             </tr>
                         </tbody>
@@ -143,8 +151,10 @@
                                                                       
                                     <div class="col-lg-4">
 
+
                                         <label for="id_reg_dni">Causa</label>
                                         <input [(ngModel)]= "incidente.descripcion" type="text" placeholder="Ingrese Causa" class="form-control" name="dni" id="id_reg_dni"  maxlength="30s"/>
+
 
                                     </div>
 
@@ -171,6 +181,7 @@
 
             </div>
         </div>
+
 
     </div>    
 
