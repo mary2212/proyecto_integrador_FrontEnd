@@ -17,10 +17,14 @@ export class AddBoletaComponent implements OnInit {
 
   boletas: Boleta[] =[];
   filtro: string= "";
+ 
 
   idUsuario: number [] = [];
   idServicio: number [] = [];
   idPropietario: number [] = [];
+  estado: string  = "";
+  idServicio2: number = -1;
+  idPropietario2: number = -1;
 
   boleta: Boleta= {
     idBoleta:0,
@@ -129,6 +133,15 @@ export class AddBoletaComponent implements OnInit {
             }
           };
         
+      }
+    );
+  }
+
+  listaBoletaParam(){
+    this.boletaService.listaBoletaParametros(this.estado, this.idServicio2,this.idPropietario2).subscribe(
+      (x) =>{
+        this.boletas = x.lista;
+        alert(x.mensaje);
       }
     );
   }

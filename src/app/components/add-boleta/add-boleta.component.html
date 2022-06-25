@@ -9,16 +9,27 @@
             
             <div class="col-md-4">
                 <label>Servicio: </label>
-                    <select [(ngModel)] = "filtro" name="servicio" class="form-control" >
+                    <select [(ngModel)] = "idServicio2" name="servicio" class="form-control" >
                         <option value="-1"> [Seleccione] </option> 
                         <option *ngFor="let aux of listaServicios" value="{{aux.idServicio}}">
                             {{ aux.descripcion }}
                         </option>                                                                                  
                     </select>
             </div>
+
+            <div class="col-md-4">
+                <label>Nombre: </label>
+                    <select [(ngModel)] = "idPropietario2" name="propietario" class="form-control" >
+                        <option value="-1"> [Seleccione] </option> 
+                        <option *ngFor="let aux of listaPropietarios" value="{{aux.idPropietario}}">
+                            {{ aux.nombrePropietario }}
+                        </option>                                                                                  
+                    </select>
+            </div>
+
             <div class="col-md-4">
                 <label>Estado: </label>
-                <select [(ngModel)] = "filtro" name="filtro" class="form-control" >
+                <select [(ngModel)] = "estado" name="filtro" class="form-control" >
                     <option value="-1"> [Seleccione] </option>
                     <option value=" " > TODOS </option>  
                     <option value="NO PAGADO"> NO PAGADO </option>  
@@ -30,7 +41,7 @@
 
         <div class="row" style="height: 100px" style="margin-bottom: 3%">
             <div class="col-md-2">
-                <button (click)="consulta()" type="button" class="btn btn-primary" id="id_btn_Listar" style="width: 150px">Listar</button>
+                <button (click)="listaBoletaParam()" type="button" class="btn btn-primary" id="id_btn_Listar" style="width: 150px">Listar</button>
             </div>
             <div class="col-md-2">
                 <button  type="button" data-toggle='modal' data-target="#idModalRegistrar" class='btn btn-success' style="width: 150px">Registrar</button>

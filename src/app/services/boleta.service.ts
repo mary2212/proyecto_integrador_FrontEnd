@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Boleta } from '../models/boleta.model';
@@ -30,5 +30,10 @@ export class BoletaService {
 
   actualiza(aux:Boleta): Observable<any>{
     return this.http.put<any>(baseUrl+"/actualizar", aux);
+  }
+
+  listaBoletaParametros(estado:string, idServicio:number, idPropietario:number): Observable<any>{
+    const params = new HttpParams().set("estado",estado).set("idServicio",idServicio).set("idPropietario",idPropietario);
+    return this.http.get<any>(baseUrl+"/listaBoletaEstadoServicioProp" ,{params})
   }
 }
