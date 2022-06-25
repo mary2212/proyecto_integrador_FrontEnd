@@ -14,6 +14,7 @@ export class IncidenteService {
 
   consulta(filtro:string):Observable<Incidente[]>{
     if(filtro.trim() == ''){
+
       return this.http.get<Incidente[]>(baseUrl+"/listaIncidentePorEstado/todos")
     }else{
       return this.http.get<Incidente[]>(baseUrl+"/listaIncidentePorEstado/" + filtro)
@@ -36,10 +37,13 @@ export class IncidenteService {
   }
 
   actualiza(aux:Incidente): Observable<any>{
+
     return this.http.put<any>(baseUrl+"/actualiza", aux);
   }
+
   elimina(incidente:Incidente){
     return this.http.delete<Incidente>(baseUrl+"/"+incidente.idIncidente);
   }
 
 }
+

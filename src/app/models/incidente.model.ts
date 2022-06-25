@@ -8,6 +8,8 @@ export class Incidente {
     fechaIncidente?: string;
     departamento?: Departamento;
     edificio?: Edificio;
+
     estado?: string;
     solucion?: string;
 }
+

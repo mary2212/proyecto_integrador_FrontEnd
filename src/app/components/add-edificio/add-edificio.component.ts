@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Edificio } from 'src/app/models/edificio.model';
 import { EdificioService } from 'src/app/services/edificio.service';
 
@@ -21,9 +22,17 @@ export class AddEdificioComponent implements OnInit {
     numPisos: "",
     fechaRegistro: ""
   };
+  /*cambio*/
+  //validaciones
+  ediForm : FormGroup= this.formBuilder.group({
+    nomEdificio:['',[Validators.required]],
+    numPisos:['',[Validators.required]],
 
+  });
+  submitted= false;
+  /*cambio*/
+  constructor(private edificioService:EdificioService/*cambio*/, private formBuilder:FormBuilder/*cambio*/) { }   
 
-  constructor(private edificioService:EdificioService) { }   
 
   ngOnInit(): void {
   }
@@ -41,6 +50,14 @@ export class AddEdificioComponent implements OnInit {
     console.log(" ==> registra ==> nomEdificio ==> " + this.edificio.nomEdificio);
     console.log(" ==> registra ==> numPisos ==> " + this.edificio.numPisos);
     console.log(" ==> registra ==> fechaRegistro ==> " + this.edificio.fechaRegistro);
+
+    /*cambio*/
+    this.submitted=true;
+    
+    if(this.ediForm.invalid){
+      return;
+    }
+    /*cambio*/
     
     this.edificioService.registra(this.edificio).subscribe(
       response =>{

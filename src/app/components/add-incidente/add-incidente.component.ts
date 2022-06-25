@@ -12,6 +12,7 @@ import { IncidenteService } from 'src/app/services/incidente.service';
   styleUrls: ['./add-incidente.component.css']
 })
 export class AddIncidenteComponent implements OnInit {
+
   //para mostrar informacion en la tabla
   incidentes: Incidente [] = [];
 
@@ -43,7 +44,9 @@ export class AddIncidenteComponent implements OnInit {
     edificio:{
       idEdificio:0,
     },
+
     estado:""
+
   };
 
   listaEdificios: Edificio[] = [];
@@ -52,6 +55,7 @@ export class AddIncidenteComponent implements OnInit {
 
   constructor(private incidenteService:IncidenteService, private edificioService:EdificioService, private departamentoService:DepartamentoService) { 
     this.edificioService.listaEdificio().subscribe(
+
       (x) => this.edificios = x
     );
 
@@ -60,6 +64,7 @@ export class AddIncidenteComponent implements OnInit {
     );
 
     this.edificioService.listaEdificio().subscribe(
+
       edificios => this.listaEdificios = edificios
     );
 
@@ -76,6 +81,7 @@ export class AddIncidenteComponent implements OnInit {
 
     this.incidenteService.consulta(this.filtro).subscribe(
       response => this.incidentes = response
+
     );    
   }
 
@@ -95,6 +101,7 @@ export class AddIncidenteComponent implements OnInit {
 
   actualiza(){
     this.incidenteService.actualiza(this.incidente).subscribe(
+
       response =>{
         alert(response.mensaje);
 
@@ -102,16 +109,21 @@ export class AddIncidenteComponent implements OnInit {
           response => this.incidentes = response
         );
 
+
         this.incidente = {
+
           idIncidente:0,
           descripcion:"",
           fechaIncidente:"",
           departamento:{
+
             idDepartamento:0
+
           },
           edificio:{
             idEdificio:0,
           },
+
           estado:"",
         };
       }
@@ -146,6 +158,7 @@ export class AddIncidenteComponent implements OnInit {
         this.incidentes = x.lista;
         alert(x.mensaje);
       }
+
     );
   }
 
