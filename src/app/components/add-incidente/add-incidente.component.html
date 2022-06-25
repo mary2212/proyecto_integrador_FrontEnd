@@ -1,5 +1,9 @@
 <app-header></app-header>
+
+
 <div class="container">
+
+
     <h5>Crud de Incidente</h5>
 
     <div  class="col-md-23" style="margin-top: 3%">
@@ -26,12 +30,17 @@
                     <option *ngFor="let aux of listaEdificios" value="{{aux.idEdificio}}">
                         {{aux.nomEdificio}}
                     </option>                                                                                  
+
                 </select>
             </div>
 
             <div class="col-lg-4">
                 <label  for="id_reg_provincia">Departamento</label>
+
+
                 <select [(ngModel)] = "idDepartamento2" (change)="cargaDepartamento()" id="id_reg_provincia" name="provincia" class="form-control" >
+
+
                     <option value="-1"> [Seleccione] </option> 
                     <option *ngFor="let aux of listaDepartamanentos" value="{{aux.idDepartamento}}">
                         {{aux.numeroDepartamento}}
@@ -51,6 +60,7 @@
             </div>
 
         </div>    
+
         <div class="row">
             <div class="col-md-12">
                 <div class="content">
@@ -63,9 +73,13 @@
                                 <th style="width: 10%">FechaIncidente</th>
                                 <th style="width: 10%">Departamento</th>
                                 <th style="width: 10%">Edificio</th>
+
+
                                 <th style="width: 10%">Estado</th> 
                                 <th style="width: 15%">Respuesta</th>                     
                                 <th style="width: 10%">Acción</th>                        
+
+
                             </tr>
                         </thead>
                         <tbody>
@@ -76,8 +90,12 @@
                                 <td>{{aux.departamento!.numeroDepartamento}}</td>
                                 <td>{{aux.edificio!.nomEdificio}}</td>
                                 <td>{{aux.estado}}</td>
+
+
                                 <td>{{aux.solucion}}</td>
                                 <td><button (click)="busca(aux)" type="button" onclick="" style="width: 90px" class="btn btn-primary btn-sm btn-danger" data-toggle='modal' data-target="#idModalRegistrar4">Atender</button></td>                              
+
+
                             </tr>
                         </tbody>
                     </table>
@@ -101,24 +119,29 @@
                 </div>
                 
                 <div class="modal-body">
+
                     <form class="content" (ngSubmit)="registar()" >
+
                         <div class="submit-form">
                             
                                 <div  class="row">
                                   
                                     <div class="col-lg-4">
                                         <label  for="id_reg_provincia">Edificio</label>
+
                                         <select [(ngModel)] ="incidente.edificio!.idEdificio" id="id_reg_provincia" name="provincia" class="form-control" >
                                             <option value="-1"> [Seleccione] </option>   
                                             <option *ngFor="let aux of listaEdificios" value="{{aux.idEdificio}}">
-                                                {{aux.nomEdificio}}
+
                                             </option>                                                                                
                                         </select>
                                     </div>
 
                                     <div class="col-lg-4">
                                         <label  for="id_reg_provincia">Departamento</label>
+
                                         <select [(ngModel)] ="incidente.departamento!.idDepartamento" id="id_reg_provincia" name="provincia" class="form-control" >
+
                                             <option value="-1"> [Seleccione] </option> 
                                             <option *ngFor="let aux of listaDepartamanentos" value="{{aux.idDepartamento}}">
                                                 {{ aux.numeroDepartamento}}
@@ -127,9 +150,14 @@
                                     </div>                                
                                                                       
                                     <div class="col-lg-4">
+
+
                                         <label for="id_reg_dni">Causa</label>
                                         <input [(ngModel)]= "incidente.descripcion" type="text" placeholder="Ingrese Causa" class="form-control" name="dni" id="id_reg_dni"  maxlength="30s"/>
+
+
                                     </div>
+
 
                                 </div>                                
 
@@ -138,7 +166,9 @@
                             <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btn_reg_cerrar" style="width: 100px;">Close</button>
                             <div class="form-group text-center">
                                 <div class="col-lg-12">
+
                                     <button id="id_reg_registra"  class="btn btn-success form-control"style="width: 100px;">Registrar</button>
+
                                 </div>
                             </div>
                         </div>
@@ -151,7 +181,10 @@
 
             </div>
         </div>
+
+
     </div>    
+
     
     <div class="modal fade4"  id="idModalRegistrar4" tabindex="-1" aria-labelledby="exampleModalLabel4" aria-hidden="true">
 
@@ -213,3 +246,4 @@
             </div>
         </div>
     </div>
+

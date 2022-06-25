@@ -12,6 +12,10 @@ export class PropietarioService {
 
   constructor(private http:HttpClient) { }
 
+  listaPropietario():Observable<Propietario[]>{
+    return this.http.get<Propietario[]>(baseUrl+"/listar")
+  }
+
   consulta(filtro:string):Observable<Propietario[]>{
     if(filtro.trim() == ''){
       return this.http.get<Propietario[]>(baseUrl+"/listaPropietarioPorNombre/todos")

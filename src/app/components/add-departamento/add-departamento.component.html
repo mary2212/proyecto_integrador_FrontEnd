@@ -66,23 +66,23 @@
                 </div>
                 
                 <div class="modal-body">
-                    <form class="content" >
+                    <form  [formGroup]="depForm" class="content" >
                         <div class="submit-form">
                             
                                 <div  class="row">
                                     <div class="col-lg-10">
                                         <label for="id_reg_nombre">Numero de Departamento</label>
-                                        <input formControlName="nomEdificio" [(ngModel)] ="departamento.numeroDepartamento" type="text" placeholder="Ingrese numero de departamento" class="form-control" name="nombre" id="id_reg_nombre" />
+                                        <input formControlName="numeroDepartamento" [(ngModel)] ="departamento.numeroDepartamento" type="text" placeholder="Ingrese numero de departamento" class="form-control" name="nombre" id="id_reg_nombre" />
                                     </div>
                                     
                                     <div class="col-lg-2">
                                         <label for="id_reg_dni">Piso</label>
-                                        <input [(ngModel)] ="departamento.piso" type="text" placeholder="Ingrese Piso" class="form-control" name="dni" id="id_reg_dni"  maxlength="8"/>
+                                        <input formControlName="piso"  [(ngModel)] ="departamento.piso" type="text" placeholder="Ingrese Piso" class="form-control" name="dni" id="id_reg_dni"  maxlength="8"/>
                                     </div>
                                      
                                     <div class="col-lg-4">
                                         <label for="id_reg_dni">M.Cuadrados</label>
-                                        <input [(ngModel)] ="departamento.metrosCuadrados" type="text" placeholder="Ingrese M.Cuadrados" class="form-control" name="dni" id="id_reg_dni"  maxlength="8"/>
+                                        <input formControlName="metrosCuadrados"  [(ngModel)] ="departamento.metrosCuadrados" type="text" placeholder="Ingrese M.Cuadrados" class="form-control" name="dni" id="id_reg_dni"  maxlength="8"/>
                                     </div>
 
                                     <div class="col-lg-4">
