@@ -10,5 +10,6 @@ export class Incidente {
     edificio?: Edificio;
 
     estado?: string;
+    solucion?: string;
 }
 

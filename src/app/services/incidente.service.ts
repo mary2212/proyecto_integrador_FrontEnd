@@ -26,6 +26,7 @@ export class IncidenteService {
   return this.http.get<any>(baseUrl + "/listaIncidenteConParametros", {params})
  }
 
+ //controlador para listado multiple
  listaIncidente2(idEdificio:number, idDepartamento:number, estado:string):Observable<any>{
   const params = new HttpParams().set("idEdificio",idEdificio).set("idDepartamento",idDepartamento).set("estado",estado);
   return this.http.get<any>(baseUrl + "/listaIncidenteConParametros2", {params})

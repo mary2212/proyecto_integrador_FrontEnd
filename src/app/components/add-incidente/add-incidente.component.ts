@@ -52,6 +52,7 @@ export class AddIncidenteComponent implements OnInit {
   listaEdificios: Edificio[] = [];
   listaDepartamanentos: Departamento[] = [];
 
+
   constructor(private incidenteService:IncidenteService, private edificioService:EdificioService, private departamentoService:DepartamentoService) { 
     this.edificioService.listaEdificio().subscribe(
 
@@ -150,9 +151,10 @@ export class AddIncidenteComponent implements OnInit {
     );
   }
 
+  //funcion de para hacer listado multiple
   listaIncidente2(){
-    this.incidenteService.listaIncidente2(this.idDepartamento2, this.idDepartamento2, this.estado).subscribe(
-      (x) => {
+    this.incidenteService.listaIncidente2(this.idEdificio2, this.idDepartamento2, this.estado).subscribe(
+      (x) => {          
         this.incidentes = x.lista;
         alert(x.mensaje);
       }
