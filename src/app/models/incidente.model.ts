@@ -9,4 +9,5 @@ export class Incidente {
     departamento?: Departamento;
     edificio?: Edificio;
     estado?: string;
+    solucion?: string;
 }
