@@ -132,7 +132,7 @@
                                         <select [(ngModel)] ="incidente.edificio!.idEdificio" id="id_reg_provincia" name="provincia" class="form-control" >
                                             <option value="-1"> [Seleccione] </option>   
                                             <option *ngFor="let aux of listaEdificios" value="{{aux.idEdificio}}">
-
+                                                {{ aux.nomEdificio}}
                                             </option>                                                                                
                                         </select>
                                     </div>
