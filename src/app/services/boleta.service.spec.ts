@@ -1,17 +1,16 @@
 import { TestBed } from '@angular/core/testing';
 
-import { IncidenteService } from './incidente.service';
+import { BoletaService } from './boleta.service';
 
-describe('IncidenteService', () => {
-  let service: IncidenteService;
+describe('BoletaService', () => {
+  let service: BoletaService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(IncidenteService);
+    service = TestBed.inject(BoletaService);
   });
 
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
 });
-
