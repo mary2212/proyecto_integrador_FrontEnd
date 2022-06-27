@@ -49,7 +49,7 @@
 
     <div class="modal fade"  id="idModalRegistrar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 
-        <div class="modal-dialog" style="max-width: 70%;">
+        <div class="modal-dialog" style="max-width: 50%;">
             <div class="modal-content" >
 
                 <div class="modal-header">
@@ -64,14 +64,14 @@
                         <div class="submit-form">
                             
                                 <div  class="row">
-                                    <div class="col-lg-10">
+                                    <div class="col-lg-4">
                                         <label for="id_reg_nombre">Descripcion de Mascota</label>
-                                        <input [(ngModel)] ="mascota.descripcion" type="text" placeholder="Ingrese numero de departamento" class="form-control" name="nombre" id="id_reg_nombre" />
+                                        <input [(ngModel)] ="mascota.descripcion" type="text" placeholder="Ingrese descripcion mascota" class="form-control" name="nombre" id="id_reg_nombre" />
                                     </div>
 
-                                    <div class="col-lg-4">
-                                        <label  for="id_reg_provincia">Edificios</label>
-                                        <select [(ngModel)] ="mascota.departamento!.idDepartamento" id="id_reg_provincia" name="provincia" class="form-control" >
+                                    <div class="col-lg-3">
+                                        <label  for="id_reg_edificio">Edificios</label>
+                                        <select [(ngModel)] ="mascota.departamento!.idDepartamento" id="id_reg_edificio" name="edificio" class="form-control" >
                                             <option value="-1"> [Seleccione] </option>  
                                             <option *ngFor="let aux of listaDepartamentos" value="{{aux.idDepartamento}}">
                                                 {{ aux.numeroDepartamento }}
@@ -116,7 +116,7 @@
                         <div class="submit-form">
 
                             <div  class="row">
-                                <div class="col-lg-10">
+                                <div class="col-lg-4">
                                     <label for="id_reg_nombre">Descripcion de Mascota</label>
                                     <input [(ngModel)] ="mascota.descripcion" type="text" placeholder="Ingrese numero de departamento" class="form-control" name="nombre" id="id_reg_nombre" />
                                 </div>

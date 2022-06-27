@@ -1,6 +1,6 @@
 <app-header></app-header>
 <div class="container" >
-    <h5>Crud de Ocupane</h5>
+    <h5>Crud de Ocupante</h5>
 
     <div class="col-md-23" style="margin-top: 3%">
 
@@ -59,7 +59,7 @@
             <div class="modal-content" >
 
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Registro de Mascota</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Registro de Ocupante</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                     </button>
@@ -70,27 +70,27 @@
                         <div class="submit-form">
                             
                                 <div  class="row">
-                                    <div class="col-lg-10">
+                                    <div class="col-lg-4">
                                         <label for="id_reg_nombre">Nombre</label>
                                         <input [(ngModel)] ="ocupantes.nombreOcupante" type="text" placeholder="Ingrese Nombre" class="form-control" name="nombre" id="id_reg_nombre" />
                                     </div>
 
-                                    <div class="col-lg-10">
+                                    <div class="col-lg-4">
                                         <label for="id_reg_nombre">Apellido</label>
                                         <input [(ngModel)] ="ocupantes.apellidoOcupante" type="text" placeholder="Ingrese Apellido" class="form-control" name="nombre" id="id_reg_nombre" />
                                     </div>
 
-                                    <div class="col-lg-10">
+                                    <div class="col-lg-2">
                                         <label for="id_reg_nombre">DNI</label>
                                         <input [(ngModel)] ="ocupantes.dniOcupante" type="text" placeholder="Ingrese DNI" class="form-control" name="nombre" id="id_reg_nombre" />
                                     </div>
 
-                                    <div class="col-lg-10">
+                                    <div class="col-lg-2">
                                         <label for="id_reg_nombre">Sexo</label>
                                         <input [(ngModel)] ="ocupantes.sexo" type="text" placeholder="Ingrese Sexo" class="form-control" name="nombre" id="id_reg_nombre" />
                                     </div>                                    
 
-                                    <div class="col-lg-4">
+                                    <div class="col-lg-3">
                                         <label  for="id_reg_provincia">Edificios</label>
                                         <select [(ngModel)] ="ocupantes.departamento!.idDepartamento" id="id_reg_provincia" name="provincia" class="form-control" >
                                             <option value="-1"> [Seleccione] </option>  
@@ -137,29 +137,29 @@
                         <div class="submit-form">
 
                             <div  class="row">
-                                <div class="col-lg-10">
+                                <div class="col-lg-2">
                                     <label for="id_reg_nombre">Nombre</label>
                                     <input [(ngModel)] ="ocupantes.nombreOcupante" type="text" placeholder="Ingrese Nombre" class="form-control" name="nombre" id="id_reg_nombre" />
                                 </div>
 
-                                <div class="col-lg-10">
-                                    <label for="id_reg_nombre">Apellido</label>
-                                    <input [(ngModel)] ="ocupantes.apellidoOcupante" type="text" placeholder="Ingrese Apellido" class="form-control" name="nombre" id="id_reg_nombre" />
+                                <div class="col-lg-2">
+                                    <label for="id_reg_apellido">Apellido</label>
+                                    <input [(ngModel)] ="ocupantes.apellidoOcupante" type="text" placeholder="Ingrese Apellido" class="form-control" name="apellido" id="id_reg_apellido" />
                                 </div>
 
-                                <div class="col-lg-10">
-                                    <label for="id_reg_nombre">DNI</label>
-                                    <input [(ngModel)] ="ocupantes.dniOcupante" type="text" placeholder="Ingrese DNI" class="form-control" name="nombre" id="id_reg_nombre" />
+                                <div class="col-lg-2">
+                                    <label for="id_reg_dni">DNI</label>
+                                    <input [(ngModel)] ="ocupantes.dniOcupante" type="text" placeholder="Ingrese DNI" class="form-control" name="dni" id="id_reg_dni" />
                                 </div>
 
-                                <div class="col-lg-10">
-                                    <label for="id_reg_nombre">Sexo</label>
-                                    <input [(ngModel)] ="ocupantes.sexo" type="text" placeholder="Ingrese Sexo" class="form-control" name="nombre" id="id_reg_nombre" />
+                                <div class="col-lg-2">
+                                    <label for="id_reg_sexo">Sexo</label>
+                                    <input [(ngModel)] ="ocupantes.sexo" type="text" placeholder="Ingrese Sexo" class="form-control" name="sexo" id="id_reg_sexo" />
                                 </div>                                    
 
-                                <div class="col-lg-4">
-                                    <label  for="id_reg_provincia">Edificios</label>
-                                    <select [(ngModel)] ="ocupantes.departamento!.idDepartamento" id="id_reg_provincia" name="provincia" class="form-control" >
+                                <div class="col-lg-2">
+                                    <label  for="id_reg_edificio">Edificios</label>
+                                    <select [(ngModel)] ="ocupantes.departamento!.idDepartamento" id="id_reg_edificio" name="edificio" class="form-control" >
                                         <option value="-1"> [Seleccione] </option>  
                                         <option *ngFor="let aux of listaDepartamentos" value="{{aux.idDepartamento}}">
                                             {{ aux.numeroDepartamento }}

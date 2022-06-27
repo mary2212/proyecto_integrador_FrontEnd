@@ -25,7 +25,7 @@
                         <thead>
                             <tr>
                                 <th style="width: 5%">#</th>
-                                <th style="width: 30%">Numero de Departamento</th>
+                                <th style="width: 8%">Numero de Departamento</th>
                                 <th style="width: 10%">Piso</th>
                                 <th style="width: 10%">M.Cuadrados</th>
                                 <th style="width: 10%">Edificios</th>
@@ -59,7 +59,7 @@
             <div class="modal-content" >
 
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Registro de Docente</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Registro de Departamento</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                     </button>
@@ -70,24 +70,24 @@
                         <div class="submit-form">
                             
                                 <div  class="row">
-                                    <div class="col-lg-10">
-                                        <label for="id_reg_nombre">Numero de Departamento</label>
-                                        <input formControlName="numeroDepartamento" [(ngModel)] ="departamento.numeroDepartamento" type="text" placeholder="Ingrese numero de departamento" class="form-control" name="nombre" id="id_reg_nombre" />
+                                    <div class="col-lg-1.5">
+                                        <label for="id_reg_departamento">N° de Departamento</label>
+                                        <input formControlName="numeroDepartamento" [(ngModel)] ="departamento.numeroDepartamento" type="text" placeholder="Ingrese numero de departamento" class="form-control" name="numDepartamento" id="id_reg_departamento"/>
                                     </div>
                                     
                                     <div class="col-lg-2">
-                                        <label for="id_reg_dni">Piso</label>
-                                        <input formControlName="piso"  [(ngModel)] ="departamento.piso" type="text" placeholder="Ingrese Piso" class="form-control" name="dni" id="id_reg_dni"  maxlength="8"/>
+                                        <label for="id_reg_piso">Piso</label>
+                                        <input formControlName="piso" [(ngModel)] ="departamento.piso" type="text" placeholder="Ingrese Piso" class="form-control" name="piso" id="id_reg_piso"  maxlength="8"/>
                                     </div>
                                      
-                                    <div class="col-lg-4">
-                                        <label for="id_reg_dni">M.Cuadrados</label>
-                                        <input formControlName="metrosCuadrados"  [(ngModel)] ="departamento.metrosCuadrados" type="text" placeholder="Ingrese M.Cuadrados" class="form-control" name="dni" id="id_reg_dni"  maxlength="8"/>
+                                    <div class="col-lg-2">
+                                        <label for="id_reg_m.cuadrados">M.Cuadrados</label>
+                                        <input formControlName="metrosCuadrados"  [(ngModel)] ="departamento.metrosCuadrados" type="text" placeholder="Ingrese M.Cuadrados" class="form-control" name="m.cuadrados" id="id_reg_m.cuadrados"  maxlength="8"/>
                                     </div>
 
-                                    <div class="col-lg-4">
-                                        <label  for="id_reg_provincia">Edificios</label>
-                                        <select [(ngModel)] ="departamento.edificio!.idEdificio" id="id_reg_provincia" name="provincia" class="form-control" >
+                                    <div class="col-lg-2">
+                                        <label  for="id_reg_edificios">Edificios</label>
+                                        <select [(ngModel)] ="departamento.edificio!.idEdificio" id="id_reg_edificios" name="edificio" class="form-control" >
                                             <option value="-1"> [Seleccione] </option>  
                                             <option *ngFor="let aux of listaEdificios" value="{{aux.idEdificio}}">
                                                 {{ aux.nomEdificio }}
@@ -95,9 +95,9 @@
                                         </select>
                                     </div>
 
-                                    <div class="col-lg-4">
-                                        <label for="id_reg_dni">Estado</label>
-                                        <input [(ngModel)] ="departamento.estado" type="text" placeholder="Ingrese Estado" class="form-control" name="dni" id="id_reg_dni"  maxlength="10"/>
+                                    <div class="col-lg-2">
+                                        <label for="id_reg_estado">Estado</label>
+                                        <input [(ngModel)] ="departamento.estado" type="text" placeholder="Ingrese Estado" class="form-control" name="estado" id="id_reg_estado"  maxlength="10"/>
                                     </div>
                                 </div>                                
 
@@ -125,7 +125,7 @@
         <div class="modal-dialog" style="max-width: 80%;">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Actualización de docente</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Actualización de Departamento</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                          <span aria-hidden="true">&times;</span>
                      </button>
@@ -136,22 +136,22 @@
                         <div class="submit-form">
 
                             <div  class="row">
-                                <div class="col-lg-10">
-                                    <label for="id_reg_nombre">Numero de Departamento</label>
-                                    <input [(ngModel)] ="departamento.numeroDepartamento" type="text" placeholder="Ingrese el nombre" class="form-control" name="nombre" id="id_reg_nombre" />
+                                <div class="col-lg-2">
+                                    <label for="id_reg_departamento">Numero de Departamento</label>
+                                    <input [(ngModel)] ="departamento.numeroDepartamento" type="text" class="form-control" name="numDepartamento" id="id_reg_departamento" />
                                 </div>
                                 
                                 <div class="col-lg-2">
-                                    <label for="id_reg_dni">Piso</label>
-                                    <input [(ngModel)] ="departamento.piso" type="text" placeholder="Ingrese DNI" class="form-control" name="dni" id="id_reg_dni"  maxlength="8"/>
+                                    <label for="id_reg_piso">Piso</label>
+                                    <input [(ngModel)] ="departamento.piso" type="text" class="form-control" name="numPiso" id="id_reg_piso"  maxlength="8"/>
                                 </div>
                                  
-                                <div class="col-lg-4">
+                                <div class="col-lg-2">
                                     <label for="id_reg_dni">M.Cuadrados</label>
-                                    <input [(ngModel)] ="departamento.metrosCuadrados" type="text" placeholder="Ingrese DNI" class="form-control" name="dni" id="id_reg_dni"  maxlength="8"/>
+                                    <input [(ngModel)] ="departamento.metrosCuadrados" type="text" placeholder="Ingrese Metros" class="form-control" name="dni" id="id_reg_dni"  maxlength="8"/>
                                 </div>
 
-                                <div class="col-lg-4">
+                                <div class="col-lg-2">
                                     <label  for="id_reg_provincia">Edificios</label>
                                     <select [(ngModel)] ="departamento.edificio!.idEdificio" id="id_reg_provincia" name="provincia" class="form-control" >
                                         <option value="-1"> [Seleccione] </option>      
@@ -161,9 +161,9 @@
                                     </select>
                                 </div>
 
-                                <div class="col-lg-4">
-                                    <label for="id_reg_dni">Estado</label>
-                                    <input [(ngModel)]= "departamento.estado" type="text" placeholder="Ingrese DNI" class="form-control" name="dni" id="id_reg_dni"  maxlength="8"/>
+                                <div class="col-lg-2">
+                                    <label for="id_reg_estado">Estado</label>
+                                    <input [(ngModel)]= "departamento.estado" type="text" placeholder="Ingrese Estado" class="form-control" name="estado" id="id_reg_estado"  maxlength="20"/>
                                 </div>
                             </div>    
                         </div>

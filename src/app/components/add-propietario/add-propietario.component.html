@@ -29,10 +29,12 @@
                                 <th style="width: 10%">Apellido</th>
                                 <th style="width: 10%">Telefono</th>
                                 <th style="width: 10%">DNI</th>
-                                <th style="width: 10%">Fecha Nacimiento</th>                                
-                                <th style="width: 10%">Fecha Registro</th>
+                                <th style="width: 12%">Fecha Nacimiento</th>                                
+                                <th style="width: 12%">Fecha Registro</th>
                                 <th style="width: 10%">Usuario</th>
                                 <th style="width: 10%">Departamento</th>
+                                <th style="width: 10%">Eliminar</th>
+                                <th style="width: 10%">Actualizar</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -61,11 +63,11 @@
 
     <div class="modal fade"  id="idModalRegistrar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 
-        <div class="modal-dialog" style="max-width: 70%;">
+        <div class="modal-dialog" style="max-width: 50%;">
             <div class="modal-content" >
 
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Registro de Docente</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Registro de Propietario</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                     </button>
@@ -76,39 +78,39 @@
                         <div class="submit-form">
                             
                                 <div  class="row">
-                                    <div class="col-lg-10">
-                                        <label for="id_reg_nombre">Nombre</label>
-                                        <input [(ngModel)] ="propietario.nombrePropietario" type="text" placeholder="Ingrese numero de departamento" class="form-control" name="nombre" id="id_reg_nombre" />
+                                    <div class="col-lg-4">
+                                        <label for="id_reg_nombre">Nombre del Propietario</label>
+                                        <input [(ngModel)] ="propietario.nombrePropietario" type="text" placeholder="Ingrese nombre de Propietario" class="form-control" name="nombre" id="id_reg_nombre" />
                                     </div>
                                     
-                                    <div class="col-lg-2">
-                                        <label for="id_reg_dni">Apellido</label>
-                                        <input [(ngModel)] ="propietario.apellidoPropietario" type="text" placeholder="Ingrese Piso" class="form-control" name="dni" id="id_reg_dni"  maxlength="8"/>
+                                    <div class="col-lg-4">
+                                        <label for="id_reg_dni">Apellido del Propietario</label>
+                                        <input [(ngModel)] ="propietario.apellidoPropietario" type="text" placeholder="Ingrese Apellido de Propietario" class="form-control" name="dni" id="id_reg_dni"  maxlength="50"/>
                                     </div>
                                      
-                                    <div class="col-lg-4">
+                                    <div class="col-lg-3">
                                         <label for="id_reg_dni">Telefono</label>
-                                        <input [(ngModel)] ="propietario.telefonoPropietario" type="text" placeholder="Ingrese M.Cuadrados" class="form-control" name="dni" id="id_reg_dni"  maxlength="8"/>
+                                        <input [(ngModel)] ="propietario.telefonoPropietario" type="text" placeholder="Ingrese Telefono" class="form-control" name="dni" id="id_reg_dni"  maxlength="9"/>
                                     </div>
 
                                     <div class="col-lg-4">
                                         <label for="id_reg_dni">DNI</label>
-                                        <input [(ngModel)] ="propietario.dniPropietario" type="text" placeholder="Ingrese M.Cuadrados" class="form-control" name="dni" id="id_reg_dni"  maxlength="8"/>
+                                        <input [(ngModel)] ="propietario.dniPropietario" type="text" placeholder="Ingrese DNI" class="form-control" name="dni" id="id_reg_dni" />
                                     </div>
 
-                                    <div class="col-lg-4">
+                                    <div class="col-lg-3">
                                         <label for="id_reg_dni">Fecha Nacimiento</label>
                                         <input [(ngModel)] ="propietario.fechaNacPropietario" type="date" placeholder="Ingrese M.Cuadrados" class="form-control" name="dni" id="id_reg_dni"  maxlength="8"/>
                                     </div>
 
-                                    <div class="col-lg-4">
+                                    <div class="col-lg-3">
                                         <label for="id_reg_dni">Fecha Registro</label>
                                         <input [(ngModel)] ="propietario.fechaRegistroPropietario" type="date" placeholder="Ingrese M.Cuadrados" class="form-control" name="dni" id="id_reg_dni"  maxlength="8"/>
                                     </div>
                                     <div class="col-lg-4">
                                         <label  for="id_reg_provincia">Usuario</label>
                                         <select [(ngModel)] ="propietario.usuario!.idUsuario" id="id_reg_provincia" name="provincia" class="form-control" >
-                                            <option value="-1"> [Seleccione] </option>  
+                                            <option value="-1" > [Seleccione] </option>  
                                             <option *ngFor="let aux of listaUsuarios" value="{{aux.idUsuario}}">
                                                 {{ aux.login }}
                                             </option>                                          
@@ -150,7 +152,7 @@
         <div class="modal-dialog" style="max-width: 80%;">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Actualización de docente</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Actualización de Propietario</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                          <span aria-hidden="true">&times;</span>
                      </button>
@@ -161,39 +163,39 @@
                         <div class="submit-form">
 
                             <div  class="row">
-                                <div  class="row">
-                                    <div class="col-lg-10">
+                                
+                                    <div class="col-lg-2">
                                         <label for="id_reg_nombre">Nombre</label>
                                         <input [(ngModel)] ="propietario.nombrePropietario" type="text" placeholder="Ingrese numero de departamento" class="form-control" name="nombre" id="id_reg_nombre" />
                                     </div>
                                     
                                     <div class="col-lg-2">
-                                        <label for="id_reg_dni">Apellido</label>
-                                        <input [(ngModel)] ="propietario.apellidoPropietario" type="text" placeholder="Ingrese Piso" class="form-control" name="dni" id="id_reg_dni"  maxlength="8"/>
+                                        <label for="id_reg_apellido">Apellido</label>
+                                        <input [(ngModel)] ="propietario.apellidoPropietario" type="text" placeholder="Ingrese Piso" class="form-control" name="apellido" id="id_reg_apellido"  maxlength="20"/>
                                     </div>
                                      
-                                    <div class="col-lg-4">
-                                        <label for="id_reg_dni">Telefono</label>
-                                        <input [(ngModel)] ="propietario.telefonoPropietario" type="text" placeholder="Ingrese M.Cuadrados" class="form-control" name="dni" id="id_reg_dni"  maxlength="8"/>
+                                    <div class="col-lg-2">
+                                        <label for="id_reg_telefono">Telefono</label>
+                                        <input [(ngModel)] ="propietario.telefonoPropietario" type="text" placeholder="Ingrese M.Cuadrados" class="form-control" name="telefono" id="id_reg_telefono"  maxlength="8"/>
                                     </div>
 
-                                    <div class="col-lg-4">
+                                    <div class="col-lg-2">
                                         <label for="id_reg_dni">DNI</label>
                                         <input [(ngModel)] ="propietario.dniPropietario" type="text" placeholder="Ingrese M.Cuadrados" class="form-control" name="dni" id="id_reg_dni"  maxlength="8"/>
                                     </div>
 
-                                    <div class="col-lg-4">
-                                        <label for="id_reg_dni">Fecha Nacimiento</label>
-                                        <input [(ngModel)] ="propietario.fechaNacPropietario" type="text" placeholder="Ingrese M.Cuadrados" class="form-control" name="dni" id="id_reg_dni"  maxlength="8"/>
+                                    <div class="col-lg-2">
+                                        <label for="id_reg_fnacimiento">Fecha Nacimiento</label>
+                                        <input [(ngModel)] ="propietario.fechaNacPropietario" type="date" placeholder="Ingrese M.Cuadrados" class="form-control" name="fnacimiento" id="id_reg_fnacimiento"  maxlength="8"/>
                                     </div>
 
-                                    <div class="col-lg-4">
-                                        <label for="id_reg_dni">Fecha Registro</label>
-                                        <input [(ngModel)] ="propietario.fechaRegistroPropietario" type="text" placeholder="Ingrese M.Cuadrados" class="form-control" name="dni" id="id_reg_dni"  maxlength="8"/>
+                                    <div class="col-lg-2">
+                                        <label for="id_reg_fregistro">Fecha Registro</label>
+                                        <input [(ngModel)] ="propietario.fechaRegistroPropietario" type="date" placeholder="Ingrese M.Cuadrados" class="form-control" name="fregistro" id="id_reg_fregistro"  maxlength="8"/>
                                     </div>
-                                    <div class="col-lg-4">
-                                        <label  for="id_reg_provincia">Usuario</label>
-                                        <select [(ngModel)] ="propietario.usuario!.idUsuario" id="id_reg_provincia" name="provincia" class="form-control" >
+                                    <div class="col-lg-2">
+                                        <label  for="id_reg_usuario">Usuario</label>
+                                        <select [(ngModel)] ="propietario.usuario!.idUsuario" id="id_reg_usuario" name="usuario" class="form-control" >
                                             <option value="-1"> [Seleccione] </option>  
                                             <option *ngFor="let aux of listaUsuarios" value="{{aux.idUsuario}}">
                                                 {{ aux.login }}
@@ -202,15 +204,15 @@
                                     </div>
 
                                     <div class="col-lg-4">
-                                        <label  for="id_reg_provincia">Departamento</label>
-                                        <select [(ngModel)] ="propietario.departamento!.idDepartamento" id="id_reg_provincia" name="provincia" class="form-control" >
+                                        <label  for="id_reg_departamento">Departamento</label>
+                                        <select [(ngModel)] ="propietario.departamento!.idDepartamento" id="id_reg_departamento" name="departamento" class="form-control" >
                                             <option value="-1"> [Seleccione] </option>  
                                             <option *ngFor="let aux of listaDepartamentos" value="{{aux.idDepartamento}}">
                                                 {{ aux.numeroDepartamento }}
                                             </option>                                          
                                         </select>
                                     </div>                                                       
-                                </div>    
+                                   
                             </div>    
                         </div>
 
