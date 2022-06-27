@@ -66,7 +66,7 @@
                         <div class="submit-form">
                             
                                 <div  class="row">
-                                    <div class="col-md-5">
+                                    <div class="col-md-2">
                                         <label for="id_reg_nomEdificio">Nombre Edificio</label>
                                         <input formControlName="nomEdificio" [(ngModel)] ="edificio.nomEdificio"  type="text" placeholder="Ingrese el nombre" class="form-control" name="nomEdificio" id="id_reg_nomEdificio" />
                                         <!--cambio-->
@@ -78,7 +78,7 @@
                                          <!--cambio-->
                                     </div>
                                     
-                                    <div class="col-lg-2">
+                                    <div class="col-lg-3">
                                         <label for="id_reg_numPisos">Numero de Pisos</label>
                                         <input formControlName="numPisos" [(ngModel)] ="edificio.numPisos"  t type="text" placeholder="Ingrese Numero de Pisos" class="form-control" name="numPisos" id="id_reg_numPisos"  maxlength="8"/>
                                         <!--cambio-->
@@ -114,7 +114,7 @@
     </div>
 
     <div class="modal fade" id="idModalActualizar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" style="max-width: 80%;">
+        <div class="modal-dialog" style="max-width: 60%;">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Actualización de Edificio</h5>
@@ -128,7 +128,7 @@
                         <div class="submit-form">
 
                             <div  class="row">
-                                <div class="col-md-5">
+                                <div class="col-md-2">
                                     <label for="id_reg_nomEdificio">Nombre Edificio</label>
                                     <input [(ngModel)] = "edificio.nomEdificio"  type="text" placeholder="Ingrese el nombre" class="form-control" name="nomEdificio" id="id_reg_nomEdificio" />
                                 </div>

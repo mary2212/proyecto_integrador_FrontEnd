@@ -126,18 +126,18 @@
                             
                                 <div  class="row">
                                   
-                                    <div class="col-lg-4">
+                                    <div class="col-lg-2">
                                         <label  for="id_reg_provincia">Edificio</label>
 
                                         <select [(ngModel)] ="incidente.edificio!.idEdificio" id="id_reg_provincia" name="provincia" class="form-control" >
                                             <option value="-1"> [Seleccione] </option>   
                                             <option *ngFor="let aux of listaEdificios" value="{{aux.idEdificio}}">
-
+                                                {{ aux.nomEdificio}}
                                             </option>                                                                                
                                         </select>
                                     </div>
 
-                                    <div class="col-lg-4">
+                                    <div class="col-lg-2">
                                         <label  for="id_reg_provincia">Departamento</label>
 
                                         <select [(ngModel)] ="incidente.departamento!.idDepartamento" id="id_reg_provincia" name="provincia" class="form-control" >
@@ -149,12 +149,10 @@
                                         </select>
                                     </div>                                
                                                                       
-                                    <div class="col-lg-4">
-
+                                    <div class="col-lg-5">
 
                                         <label for="id_reg_dni">Causa</label>
                                         <input [(ngModel)]= "incidente.descripcion" type="text" placeholder="Ingrese Causa" class="form-control" name="dni" id="id_reg_dni"  maxlength="30s"/>
-
 
                                     </div>
 
@@ -188,7 +186,7 @@
     
     <div class="modal fade4"  id="idModalRegistrar4" tabindex="-1" aria-labelledby="exampleModalLabel4" aria-hidden="true">
 
-        <div class="modal-dialog" style="max-width: 70%;">
+        <div class="modal-dialog" style="max-width: 40%;">
             <div class="modal-content" >
 
                 <div class="modal-header">
@@ -215,7 +213,7 @@
                             <input [(ngModel)] = "incidente.descripcion"  type="text" placeholder="Ingrese el nombre" class="form-control" name="nomEdificio" id="id_reg_nomEdificio" readonly=»readonly» />
                         </div>
                         
-                        <div class="submit-form">                                                                    
+                        <div class="col-md-5">                                                                    
                             <label  for="id_reg_provincia">Estado</label>
                                 <select [(ngModel)] ="incidente.estado"  id="id_reg_provincia" name="provincia" class="form-control" type=»text» readonly=»readonly» > 
                                     <option value="Atendido">Atendido</option>                                                                                           
